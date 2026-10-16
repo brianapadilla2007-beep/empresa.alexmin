@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> ALEXMIN | Empresa Minera</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --negro: #101211;
+    --dorado: #e5a928;
+    --gris: #1c211f;
+    --blanco: #f5f5f5;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+/* BARRA DE NAVEGACIÓN */
+header {
+    background: rgba(12, 14, 13, 0.97);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 1px solid #42371f;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--dorado);
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+/* PORTADA */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    background:
+    linear-gradient(90deg, rgba(0,0,0,.92),
+    rgba(0,0,0,.40)),
+    url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.etiqueta {
+    color: var(--dorado);
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(38px, 6vw, 72px);
+    margin: 22px 0;
+    line-height: 1.08;
+}
+
+h1 span {
+    color: var(--dorado);
+}
+
+.hero p {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 28px;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--dorado);
+    color: #111;
+    text-decoration: none;
+    padding: 14px 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+/* SECCIONES */
+section {
+    padding: 80px 8%;
+    scroll-margin-top: 80px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.titulo span {
+    color: var(--dorado);
+}
+
+.titulo p {
+    color: #aaa;
+    line-height: 1.7;
+}
+
+/* PRODUCTOS */
+.productos {
+    background: #151816;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.producto {
+    background: #222724;
+    border: 1px solid #383e39;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.producto:hover {
+    transform: translateY(-8px);
+    border-color: var(--dorado);
+    box-shadow: 0 10px 30px #0008;
+}
+
+.producto img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+}
+
+.producto-info {
+    padding: 22px;
+}
+
+.producto h3 {
+    color: var(--dorado);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.ver-mas {
+    display: inline-block;
+    margin-top: 17px;
+    color: var(--dorado);
+    font-weight: bold;
+}
+
+/* DETALLE DE PRODUCTO */
+#detalle {
+    display: none;
+    background: #222724;
+    border: 1px solid var(--dorado);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 35px;
+    scroll-margin-top: 100px;
+}
+
+#detalle img {
+    width: 100%;
+    max-width: 450px;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+#detalle h3 {
+    font-size: 30px;
+    color: var(--dorado);
+}
+
+#detalle p {
+    line-height: 1.8;
+    color: #ddd;
+    margin: 15px 0;
+}
+
+/* NOSOTROS */
+.nosotros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.nosotros img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.nosotros h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.nosotros h2 span {
+    color: var(--dorado);
+}
+
+.nosotros p {
+    color: #ccc;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+/* SERVICIOS */
+.servicios {
+    background: #151816;
+}
+
+.servicio {
+    background: #222724;
+    padding: 28px;
+    border-radius: 10px;
+    border-bottom: 3px solid var(--dorado);
+}
+
+.servicio h3 {
+    color: var(--dorado);
+    margin-bottom: 12px;
+}
+
+.servicio p {
+    color: #ccc;
+    line-height: 1.7;
+}
+
+/* CONTACTO */
+.contacto {
+    text-align: center;
+    background: linear-gradient(135deg, #242017, #101211);
+}
+
+.contacto p {
+    color: #ccc;
+    line-height: 1.8;
+    margin: 20px auto;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    background: #080908;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .contacto {
+    text-align: center;
+    padding: 45px 20px;
+    background: #111111;
+    color: white;
+    border-radius: 15px;
+    margin: 30px auto;
+}
+
+.contacto h2 {
+    color: #f5b400;
+    font-size: 28px;
+}
+
+.contacto p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.boton-whatsapp {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 14px 25px;
+    margin: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-whatsapp:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+}
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 62px;
+    height: 62px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 42px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.whatsapp-flotante:hover {
+    background: #128C7E;
+    transform: scale(1.12);
+}
+
+.whatsapp-flotante svg{
+    width: 36px;
+    height: 36px;
+    fill: white;
+
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⛏ EMPRESA ALEXMIN </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- INICIO -->
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <span class="etiqueta">COMERCIALIZACION · MAQUINARIA · MINERÍA</span>
+
+        <h1>Extraemos el valor.<br>
+        <span>Construimos futuro.</span></h1>
+
+        <p>
+            Somos una empresa dedicada a la 
+            venta de maquinas y perforadoras para la mineria.
+        </p>
+
+        <a href="productos" class="btn">EXPLORAR PRODUCTOS →</a>
+    </div>
+</section>
+<!-- CATÁLOGO DE MAQUINARIA MINERA -->
+<section class="productos" id="productos">
+
+    <div class="titulo">
+        <h2>Nuestros<span>Productos</span></h2>
+        <p>Equipos diseñados para potenciar las operaciones mineras.</P>
+        <P>Haz clic en un parametro para conocer mas al respecto.</p>
+    </div>
+
+    <div class="catalogo">
+
+        <article class="producto"
+        onclick="window.location.href='perforadora.html'">
+            <img src="imagen de maquina yt27.avif"
+             alt="perforadora de minas">
+            <div class="producto-info">
+                <h3>PERFORADORAS</h3>
+                <p>Ofrecemos perforadoras para minería diseñadas para brindar potencia, 
+                   precisión y resistencia en trabajos de perforación. 
+                   Contamos con equipos de alto rendimiento, ideales para diferentes 
+                   operaciones mineras, que garantizan eficiencia, durabilidad y 
+                   confiabilidad incluso en condiciones de trabajo exigentes.</p>
+                <span class="ver-mas">Ver maquinaria →</span>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="window.location.href='repuestos.html'">
+            <img src="Repuestos_para_perforadoras.jpg"
+            alt="repuestos para las maquinas">
+            <div class="producto-info">
+                <h3>REPUESTOS</h3>
+                <p> Disponemos de repuestos para maquinaria minera, 
+                    con opciones de calidad que garantizan durabilidad, 
+                    mantenimiento eficiente y un funcionamiento confiable.</p>
+                <span class="ver-mas">Ver maquinaria →</span>
+            </div>
+        </article>
+
+  <article class="producto"
+        onclick="window.location.href='barreno.html'">
+            <img src="Barreno_para_mina.jpg"
+            alt="berrenos para perforacion">
+            <div class="producto-info">
+                <h3>BARRENOS</h3>
+                <p> Ofrecemos barrenos resistentes y eficientes, 
+                    ideales para perforaciones mineras que requieren precisión, 
+                    durabilidad y alto rendimiento.</p>
+                <span class="ver-mas">Ver maquinaria →</span>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- INFORMACIÓN DE LA MÁQUINA SELECCIONADA -->
+    <div id="detalle">
+        <h3 id="detalle-titulo"></h3>
+
+        <img id="detalle-imagen"
+        src="" alt="Maquinaria seleccionada">
+
+        <p id="detalle-texto"></p>
+        <p id="detalle-uso"></p>
+
+        <a id="detalle-consulta" class="btn"
+        href="contacto">
+            SOLICITAR INFORMACIÓN →
+        </a>
+
+        <br><br>
+
+        <button class="btn" onclick="volverProductos()">
+            ← VOLVER AL CATÁLOGO
+        </button>
+    </div>
+
+</section>
+
+    <!-- AQUÍ APARECE LA INFORMACIÓN AL HACER CLIC -->
+    <div id="detalle">
+        <h3 id="detalle-titulo"></h3>
+        <img id="detalle-imagen" src="" alt="Mineral seleccionado">
+        <p id="detalle-texto"></p>
+        <p id="detalle-uso"></p>
+        <button class="btn" onclick="volverProductos()">
+            ← VOLVER A LOS PRODUCTOS
+        </button>
+    </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+    <div class="nosotros">
+        <div>
+            <img src="logoo Alexmin.jpeg"
+            alt="empresa alexmin">
+        </div>
+
+        <div>
+            <h2>Sobre<span>Nosotros</span></h2>
+            <p>
+               ALEXMIN es una empresa dedicada a la comercialización 
+               de herramientas,repuestos, accesorios y materiales 
+               para el sector minero.
+            </p>
+            <p>
+               Nos enfocamos en ofrecer productos que contribuyan al desarrollo
+               y mantenimiento de las operaciones mineras, brindando atención
+               personalizada y soluciones acordes a las necesidades de nuestros clientes.  
+            </p>
+            <a href="contacto" class="btn">CONÓCENOS</a>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios" id="servicios">
+    <div class="titulo">
+        <h2>Nuestros<span>Servicios</span></h2>
+        <p>Soluciones para el sector minero.</p>
+    </div>
+
+    <div class="catalogo">
+        <div class="servicio">
+            <h3>01. MANTENIMIENTO</h3>
+            <p> Ofrecemos soluciones orientadas al mantenimiento,
+                revisión y cuidado de herramientas y equipos utilizados 
+                en el sector minero, contribuyendo a prolongar su vida útil, 
+                mejorar su rendimiento y favorecer el desarrollo eficiente de
+                las operaciones</p>
+        </div>
+
+        <div class="servicio">
+            <h3>02. CAPACITACIONES</h3>
+            <p> Promovemos la capacitación y orientación técnica
+                en el uso adecuado, cuidado y mantenimiento de
+                herramientas y accesorios mineros, con el propósito
+                de fortalecer los conocimientos del personal y
+                fomentar prácticas de trabajo más eficientes y seguras.</p>
+        </div>
+
+        <div class="servicio">
+            <h3>03. VENTAS</h3>
+            <p> Comercializamos herramientas, repuestos, accesorios 
+                y materiales para el sector minero, ofreciendo alternativas 
+                que responden a las necesidades de empresas, cooperativas mineras,
+                contratistas y talleres. Nuestro compromiso es brindar atención
+                personalizada, productos adecuados y soluciones para el 
+                abastecimiento de las operaciones mineras.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+    <div class="titulo">
+        <h2>¿Buscas un <span>proveedor minero?</span></h2>
+        <p>Contáctanos para solicitar información sobre
+        nuestros productos y servicios.</p>
+    </div>
+
+    <p>
+        Correo: empresa.alexmin01@gmail.com<br>
+        Teléfono: +591 75999085<br>
+        Ubicación: Av.Simon I Patiño Km 15/5 Cochabamba,Bolivia
+    </p>
+
+    <!-- SECCIÓN DE CONTACTO POR WHATSAPP -->
+<section class="#contacto">
+    <h2>Contáctanos por WhatsApp</h2>
+    <p>¿Necesitas maquinaria o repuestos para minería?</p>
+    <p>Estamos listos para atenderte.</p>
+
+    <a href="https://wa.me/59175999085?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos%20mineros."
+       target="_blank"
+       rel="noopener noreferrer"
+       class="boton-whatsapp">
+       Escríbenos por WhatsApp
+    </a>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<a
+    href="https://wa.me/59175999085?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos%20mineros."
+    class="whatsapp-flotante"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    title="¡Escríbenos por WhatsApp!"
+>
+    <span>☏</span>
+</a>
+</section>
+
+</section>
+
+<footer>
+    © 2026 EMPRESA ALEXMIN | Sitio web empresarial de alexmin.
+    <br><br>
+    Los datos de contacto y la información corporativa son de la empresa.
+</footer>
+
+<script>
+const minerales = {
+    cobre: {
+        nombre: "Cobre",
+        imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80",
+        descripcion: "El cobre es un metal reconocido por su conductividad eléctrica y térmica. Es importante para múltiples sectores industriales.",
+        uso: "Aplicaciones: cables eléctricos, construcción, electrónica y fabricación industrial."
+    },
+    plata: {
+        nombre: "Plata",
+        imagen: "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=900&q=80",
+        descripcion: "La plata es un metal precioso con elevada conductividad y múltiples aplicaciones tecnológicas.",
+        uso: "Aplicaciones: joyería, componentes electrónicos y procesos industriales."
+    },
+    zinc: {
+        nombre: "Zinc",
+        imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80",
+        descripcion: "El zinc se utiliza principalmente para proteger el acero y el hierro frente a la corrosión.",
+        uso: "Aplicaciones: galvanización, aleaciones y fabricación de productos metálicos."
+    },
+    estano: {
+        nombre: "Estaño",
+        imagen: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=900&q=80",
+        descripcion: "El estaño es un metal utilizado en aleaciones y en la fabricación de determinados componentes industriales.",
+        uso: "Aplicaciones: soldaduras, recubrimientos y aleaciones metálicas."
+    }
+};
+
+function mostrarProducto(tipo) {
+    const producto = minerales[tipo];
+
+    document.getElementById("detalle-titulo").textContent =
+        producto.nombre;
+
+    document.getElementById("detalle-imagen").src =
+        producto.imagen;
+
+    document.getElementById("detalle-texto").textContent =
+        producto.descripcion;
+
+    document.getElementById("detalle-uso").textContent =
+        producto.uso;
+
+    const detalle = document.getElementById("detalle");
+    detalle.style.display = "block";
+
+    // Abre la sección de información del mineral elegido.
+    setTimeout(() => {
+        detalle.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 50);
+}
+
+function volverProductos() {
+    document.getElementById("detalle").style.display = "none";
+
+    document.getElementById("productos").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>

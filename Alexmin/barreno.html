@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perforadoras | ALEXMIN</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --negro: #101211;
+    --dorado: #e5a928;
+    --gris: #222724;
+    --blanco: #f5f5f5;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+/* BARRA SUPERIOR */
+header {
+    background: rgba(12, 14, 13, 0.97);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 1px solid #42371f;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    color: var(--dorado);
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+/* PORTADA */
+.hero {
+    min-height: 48vh;
+    display: flex;
+    align-items: center;
+    padding: 65px 8%;
+    background:
+        linear-gradient(90deg, #101211f2, #10121188),
+        url('https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1600&q=85')
+        center/cover;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.etiqueta {
+    color: var(--dorado);
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    margin: 20px 0;
+}
+
+h1 span, .titulo span {
+    color: var(--dorado);
+}
+
+.hero p {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    background: var(--dorado);
+    color: #111;
+    text-decoration: none;
+    padding: 13px 22px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+/* CATÁLOGO */
+section {
+    padding: 65px 8%;
+    scroll-margin-top: 85px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.titulo p {
+    color: #aaa;
+    line-height: 1.7;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    gap: 24px;
+}
+
+.producto {
+    background: var(--gris);
+    border: 1px solid #383e39;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.producto:hover {
+    transform: translateY(-7px);
+    border-color: var(--dorado);
+    box-shadow: 0 10px 30px #0008;
+}
+
+.producto img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 21px;
+}
+
+.producto h3 {
+    color: var(--dorado);
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.producto p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.ver-mas {
+    display: inline-block;
+    color: var(--dorado);
+    font-weight: bold;
+    margin-top: 17px;
+}
+
+/* DETALLE DEL EQUIPO */
+#detalle {
+    display: none;
+    margin-top: 35px;
+    padding: 28px;
+    background: var(--gris);
+    border: 1px solid var(--dorado);
+    border-radius: 12px;
+}
+
+#detalle h3 {
+    color: var(--dorado);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#detalle img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin: 20px 0;
+}
+
+#detalle p {
+    color: #ddd;
+    line-height: 1.8;
+    margin: 12px 0;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    background: #080908;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    section {
+        padding: 50px 6%;
+    }
+
+    .hero {
+        min-height: 45vh;
+    }
+}
+/* CONTACTO */
+.contacto {
+    text-align: center;
+    background: linear-gradient(135deg, #242017, #101211);
+}
+
+.contacto p {
+    color: #ccc;
+    line-height: 1.8;
+    margin: 20px auto;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    background: #080908;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .contacto {
+    text-align: center;
+    padding: 45px 20px;
+    background: #111111;
+    color: white;
+    border-radius: 15px;
+    margin: 30px auto;
+}
+
+.contacto h2 {
+    color: #f5b400;
+    font-size: 28px;
+}
+
+.contacto p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.boton-whatsapp {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 14px 25px;
+    margin: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-whatsapp:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+}
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 62px;
+    height: 62px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 42px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.whatsapp-flotante:hover {
+    background: #128C7E;
+    transform: scale(1.12);
+}
+
+.whatsapp-flotante svg{
+    width: 36px;
+    height: 36px;
+    fill: white;
+
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⛏ EMPRESA ALEXMIN</div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#catalogo">Barrenos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- PORTADA DE BARRENOS -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="etiqueta">BARRENOS PARA MINERÍA</span>
+
+        <h1>Barrenos<span>mineros</span></h1>
+
+        <p>
+            Los barrenos son herramientas esenciales 
+            para la perforación de roca en trabajos mineros. 
+            Fabricados para ofrecer resistencia y durabilidad, 
+            permiten realizar perforaciones eficientes y precisas, 
+            adaptándose a las exigencias de las operaciones mineras.
+        </p>
+
+        <a href="#catalogo" class="btn">
+            EXPLORAR BARRENOS ↓
+        </a>
+    </div>
+</section>
+
+<!-- TIPOS DE BARRENOS -->
+<section id="catalogo">
+
+    <div class="titulo">
+        <h2>Tipos de <span>Barrenos</span></h2>
+    </div>
+
+    <div class="catalogo">
+
+        <article class="producto"
+        onclick="mostrarEquipo('barrenos conico 0,60')">
+            <img
+            src=" "
+            alt="barrenos conico ">
+
+            <div class="producto-info">
+                <h3>BARRENO CONICO BRASILERO 0,60mts</h3>
+                <p>Barreno cónico de 0,60 m, 
+                    ideal para perforaciones cortas en roca. 
+                    Ofrece resistencia y precisión para trabajos 
+                    de minería.</p>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('barreno conico 0,80')">
+            <img
+            src=" "
+            alt="barreno conico">
+
+            <div class="producto-info">
+                <h3>BARRENO CONICO BRASILERO 0,80mts</h3>
+                <p>Barreno cónico de 0,80 m, diseñado para trabajos 
+                    de perforación minera que requieren eficiencia, 
+                    durabilidad y buen rendimiento.</p>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('barrenos conico 1,20')">
+            <img
+            src=" "
+            alt="barreno conico">
+
+            <div class="producto-info">
+                <h3>BARRENO CONICO BRASILERO 1,20mts</h3>
+                <p>Barreno cónico de 1,20 m, adecuado para 
+                    perforaciones de mayor profundidad, ofreciendo 
+                    resistencia y confiabilidad en operaciones mineras.</p>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('barreno conico 1,80')">
+            <img
+            src=" "
+            alt="barreno conico">
+
+            <div class="producto-info">
+                <h3>BARRENO CONICO BRASILERO 1,80mts</h3>
+                <p>Barreno cónico de 1,80 m, ideal para perforaciones 
+                    profundas en roca, diseñado para soportar las 
+                    exigencias del trabajo minero.</p>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('barreno diamantado 0,80')">
+            <img
+            src=" "
+            alt="barreno diamantado">
+
+            <div class="producto-info">
+                <h3>BARRENO DIAMANTADO BRASILERO 0,80mts</h3>
+                <p>El barreno diamantado de 0,80 m está diseñado para 
+                    trabajos de perforación minera, ofreciendo resistencia, 
+                    precisión y durabilidad para operaciones exigentes.</p>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('barreno diamantado 1,20')">
+            <img
+            src=" "
+            alt="barreno diamantado">
+
+            <div class="producto-info">
+                <h3>BARRENO DIAMANTADO BRASILERO 1,20mts</h3>
+                <p>El barreno diamantado de 1,20 m es ideal 
+                    para trabajos de perforación en minería, 
+                    brindando eficiencia, resistencia y un rendimiento 
+                    confiable en condiciones exigentes.</p>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- AQUÍ APARECE EL DETALLE -->
+    <div id="detalle">
+        <h3 id="detalle-titulo"></h3>
+
+        <img id="detalle-imagen" src="" alt="Equipo seleccionado">
+
+        <p id="detalle-descripcion"></p>
+        <p id="detalle-aplicaciones"></p>
+
+        <div class="acciones">
+            <a id="consulta" class="btn" href="#contacto">
+                CONSULTAR ESTE EQUIPO →
+            </a>
+
+            <button class="btn" onclick="cerrarDetalle()">
+                ← VOLVER A LOS TIPOS
+            </button>
+        </div>
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <div class="titulo">
+        <h2>¿Necesitas una <span>perforadora?</span></h2>
+        <p>
+            Contáctanos para consultar disponibilidad,
+            modelos, especificaciones y precios.
+        </p>
+        <br>
+
+       <!-- SECCIÓN DE CONTACTO POR WHATSAPP -->
+<section class="#contacto">
+    <h2>Contáctanos por WhatsApp</h2>
+    <p>¿Necesitas maquinaria o repuestos para minería?</p>
+    <p>Estamos listos para atenderte.</p>
+
+    <a href="https://wa.me/59175999085?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos%20mineros."
+       target="_blank"
+       rel="noopener noreferrer"
+       class="boton-whatsapp">
+       Escríbenos por WhatsApp
+    </a>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<a
+    href="https://wa.me/59175999085?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos%20mineros."
+    class="whatsapp-flotante"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    title="¡Escríbenos por WhatsApp!"
+>
+    <span>☏</span>
+</a>
+</section>
+
+        <br><br>
+        <a href="index.html"
+        style="color:#e5a928;text-decoration:none">
+            ← VOLVER A LA PÁGINA PRINCIPAL
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 MINERA GOLD | Maquinaria y equipos para minería.
+</footer>
+
+<script>
+const equipos = {
+    jumbo: {
+        nombre: "Perforadora Jumbo",
+        imagen: "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "Los equipos jumbo se utilizan en minería subterránea y construcción de túneles. Según el modelo, pueden disponer de uno o varios brazos de perforación.",
+        aplicaciones: "Aplicaciones: desarrollo de galerías, túneles y preparación de frentes de trabajo."
+    },
+
+    jackleg: {
+        nombre: "Perforadora Jackleg",
+        imagen: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "La Jackleg es una perforadora neumática que utiliza un apoyo telescópico para facilitar el trabajo del operador en determinadas posiciones.",
+        aplicaciones: "Aplicaciones: perforación de roca en minería subterránea y trabajos en galerías, según el modelo."
+    },
+
+    dth: {
+        nombre: "Perforadora DTH",
+        imagen: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "DTH significa Down-the-Hole. Este sistema coloca el mecanismo de percusión cerca de la broca, en el fondo del barreno.",
+        aplicaciones: "Aplicaciones: perforación de roca en minería, canteras y determinados trabajos de superficie."
+    },
+
+    tophammer: {
+        nombre: "Perforadora Top Hammer",
+        imagen: "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "En los sistemas Top Hammer, el mecanismo de percusión se encuentra en la parte superior de la sarta de perforación y transmite la energía a la broca mediante las barras.",
+        aplicaciones: "Aplicaciones: perforación de roca, minería y canteras, según las características del equipo."
+    },
+
+    exploracion: {
+        nombre: "Perforadora de exploración",
+        imagen: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "Las perforadoras de exploración permiten investigar el subsuelo y, con sistemas apropiados, recuperar muestras para el análisis geológico.",
+        aplicaciones: "Aplicaciones: exploración mineral y estudios geológicos."
+    },
+
+    barrenos: {
+        nombre: "Barrenos y accesorios",
+        imagen: "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "Los accesorios de perforación incluyen barras, brocas y otros componentes seleccionados según el sistema y las condiciones de trabajo.",
+        aplicaciones: "Aplicaciones: perforación de roca. La compatibilidad depende del equipo, las conexiones y las especificaciones técnicas."
+    }
+};
+
+function mostrarEquipo(tipo) {
+    const equipo = equipos[tipo];
+
+    document.getElementById("detalle-titulo").textContent =
+        equipo.nombre;
+
+    document.getElementById("detalle-imagen").src =
+        equipo.imagen;
+
+    document.getElementById("detalle-descripcion").textContent =
+        equipo.descripcion;
+
+    document.getElementById("detalle-aplicaciones").textContent =
+        equipo.aplicaciones;
+
+    document.getElementById("consulta").href =
+        "mailto:contacto@mineragold.com?subject=" +
+        encodeURIComponent("Consulta sobre " + equipo.nombre);
+
+    document.getElementById("detalle").style.display = "block";
+
+    document.getElementById("detalle").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+function cerrarDetalle() {
+    document.getElementById("detalle").style.display = "none";
+
+    document.getElementById("catalogo").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+</script>
+
+</body>
+</html>

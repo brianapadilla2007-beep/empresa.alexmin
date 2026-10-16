@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perforadoras | ALEXMIN</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --negro: #101211;
+    --dorado: #e5a928;
+    --gris: #222724;
+    --blanco: #f5f5f5;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+/* BARRA SUPERIOR */
+header {
+    background: rgba(12, 14, 13, 0.97);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 1px solid #42371f;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    color: var(--dorado);
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+/* PORTADA */
+.hero {
+    min-height: 48vh;
+    display: flex;
+    align-items: center;
+    padding: 65px 8%;
+    background:
+        linear-gradient(90deg, #101211f2, #10121188),
+        url('https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1600&q=85')
+        center/cover;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.etiqueta {
+    color: var(--dorado);
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    margin: 20px 0;
+}
+
+h1 span, .titulo span {
+    color: var(--dorado);
+}
+
+.hero p {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    background: var(--dorado);
+    color: #111;
+    text-decoration: none;
+    padding: 13px 22px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+/* CATÁLOGO */
+section {
+    padding: 65px 8%;
+    scroll-margin-top: 85px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.titulo p {
+    color: #aaa;
+    line-height: 1.7;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    gap: 24px;
+}
+
+.producto {
+    background: var(--gris);
+    border: 1px solid #383e39;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.producto:hover {
+    transform: translateY(-7px);
+    border-color: var(--dorado);
+    box-shadow: 0 10px 30px #0008;
+}
+
+.producto img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 10px;
+}
+
+.producto h3 {
+    color: var(--dorado);
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+.ver-mas {
+    display: inline-block;
+    color: var(--dorado);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* DETALLE DEL EQUIPO */
+#detalle {
+    display: none;
+    margin-top: 35px;
+    padding: 28px;
+    background: var(--gris);
+    border: 1px solid var(--dorado);
+    border-radius: 12px;
+}
+
+#detalle h3 {
+    color: var(--dorado);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#detalle img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin: 20px 0;
+}
+
+#detalle p {
+    color: #ddd;
+    line-height: 1.8;
+    margin: 12px 0;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    background: #080908;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    section {
+        padding: 50px 6%;
+    }
+
+    .hero {
+        min-height: 45vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⛏ EMPRESA ALEXMIN</div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#catalogo">Repuestos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- PORTADA DE REPUESTOS -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="etiqueta">REPUESTOS PARA MAQUINAS</span>
+
+        <h1>Repuestos de <span> Maquina</span></h1>
+
+        <p>
+            Ofrecemos una variedad de repuestos para maquinaria minera, 
+            diseñados para garantizar el buen funcionamiento y prolongar 
+            la vida útil de los equipos. Contamos con componentes resistentes 
+            y confiables para el mantenimiento y la reparación de máquinas de 
+            perforación y otros equipos utilizados en minería. Nuestro objetivo 
+            es brindar soluciones de calidad que ayuden a reducir los tiempos de 
+            inactividad y mantener la productividad de cada operación minera.
+        </p>
+
+        <a href="#catalogo" class="btn">
+            EXPLORAR EQUIPOS ↓
+        </a>
+    </div>
+</section>
+
+<!-- TIPOS  DE REPUESTOS -->
+<section id="catalogo">
+
+    <div class="titulo">
+        <h2>Repuestos para <span>Maquina</span></h2>
+    </div>
+
+    <div class="catalogo">
+
+        <article class="producto"
+        onclick="mostrarEquipo('abrazadera de tornillo grande')">
+            <img
+            src="abrazadera pequeño.jpeg"
+            alt="abrazadera de tornillo">
+
+            <div class="producto-info">
+                <h3>ABRAZADERA DE TORNILO GRANDE</h3>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('abrazadera de tornillo')">
+            <img
+            src="abrazadera mediano.jpeg"
+            alt="abrazadera de tornillo">
+
+            <div class="producto-info">
+                <h3>ABRAZADERA DE TORNILLO MEDIANO</h3>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('abrazadera de tornillo')">
+            <img
+            src="Abrazadera tronillo pequeño.jpeg"
+            alt="abrazadera de tornillo">
+
+            <div class="producto-info">
+                <h3>ABRAZADERA DE TORNILLOS PEQUEÑO</h3>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('abrazaderas')">
+            <img
+            src="abrazadera 29.jpeg"
+            alt="abrazaderas">
+
+            <div class="producto-info">
+                <h3>ABRAZADERAS Nº29</h3>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('abrazaderas')">
+            <img
+            src="abrazadera 34.jpeg"
+            alt="abrazaderas">
+
+            <div class="producto-info">
+                <h3>ABRAZADERAS Nº34</h3>
+            </div>
+        </article>
+
+        <article class="producto"
+        onclick="mostrarEquipo('abrazaderas')">
+            <img
+            src="Abrazadera 40.jpeg"
+            alt="abrazaderas">
+
+            <div class="producto-info">
+                <h3>ABRAZADERAS Nº40</h3>
+            </div>
+        </article>
+          <article class="producto"
+        onclick="mostrarEquipo('acople')">
+            <img
+            src="acople yt27.jpeg"
+            alt="acople">
+
+            <div class="producto-info">
+                <h3>ACOPLE 3/4 YT27</h3>
+            </div>
+        </article>
+
+          <article class="producto"
+        onclick="mostrarEquipo('acople de rosca')">
+            <img
+            src="acople de rosca.jpeg"
+            alt="acople de rosca">
+
+            <div class="producto-info">
+                <h3>ACOPLE DE ROSCA 3/4 PULG</h3>
+            </div>
+        </article>
+
+          <article class="producto"
+        onclick="mostrarEquipo('ACOPLE LINAL')">
+            <img
+            src="acople lineal de maquera.jpeg"
+            alt="acople lineal">
+
+            <div class="producto-info">
+                <h3>ACOPLE LINEAL DE MANGUERA 1/2 PULG</h3>
+            </div>
+        </article>
+
+          <article class="producto"
+        onclick="mostrarEquipo('acople lineal')">
+            <img
+            src="acople de manguera con rosca.jpeg"
+            alt="acople lineal">
+
+            <div class="producto-info">
+                <h3>ACOPLE LINEAL DE MANGUERA 1/2 PULG CON ROSCA</h3>
+            </div>
+        </article>
+
+          <article class="producto"
+        onclick="mostrarEquipo('aguja yt27')">
+            <img
+            src="aguja yt27.jpeg"
+            alt="aguja yt27">
+
+            <div class="producto-info">
+                <h3>AGUJA YT27</h3>
+            </div>
+        </article>
+
+          <article class="producto"
+        onclick="mostrarEquipo('aletas yt27')">
+            <img
+            src="aletas-yt27.jpeg"
+            alt="aletas yt27">
+
+            <div class="producto-info">
+                <h3>ALETAS YT27</h3>
+            </div>
+        </article>
+
+  <article class="producto"
+        onclick="mostrarEquipo('arandela yt27')">
+            <img
+            src="arandela yt27.jpeg"
+            alt="arandela yt27">
+
+            <div class="producto-info">
+                <h3>ARANDELA DE YT27</h3>
+            </div>
+        </article>
+
+          <article class="producto"
+        onclick="mostrarEquipo('Batea para lavado')">
+            <img
+            src="batea para lavado.jpeg"
+            alt="Batea para lavado">
+
+            <div class="producto-info">
+                <h3>BATEA PARA LAVADO DE ORO</h3>
+            </div>
+        </article>
+
+  <article class="producto"
+        onclick="mostrarEquipo('broca')">
+            <img
+            src="Broca acha 41.jpeg"
+            alt="broca acha">
+
+            <div class="producto-info">
+                <h3>BROCA ACHA Nº 41</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('broca')">
+            <img
+            src="broca chirimoya 36.jpeg"
+            alt="broca chirimoya">
+
+            <div class="producto-info">
+                <h3>BROCA CHIRIMOYA Nº 36</h3>
+            </div>
+        </article>
+
+  <article class="producto"
+        onclick="mostrarEquipo('broca')">
+            <img
+            src="broca chirimoya 38.jpeg"
+            alt="broca chirimoya">
+
+            <div class="producto-info">
+                <h3>BROCA CHIRIMOYA Nº 38</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('broca')">
+            <img
+            src="broca chirimoya negro.jpeg"
+            alt="broca chirimoya">
+
+            <div class="producto-info">
+                <h3>BROCA CHIRIMOYA Nº 38 NEGRO</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('broca')">
+            <img
+            src="broca gusano.jpeg"
+            alt="broca gusano">
+
+            <div class="producto-info">
+                <h3>BROCA GUSANO ROTOMARTILLO</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('bronce')">
+            <img
+            src="bronce grande.jpeg"
+            alt="bronce">
+
+            <div class="producto-info">
+                <h3>BRONCE GRANDE DE YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('bronce')">
+            <img
+            src="bronce pequeño.jpeg"
+            alt="bronce">
+
+            <div class="producto-info">
+                <h3>BRONCE PEQUEÑO DE YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('buje de barreno')">
+            <img
+            src="buje de barreno.jpeg"
+            alt="buje de barreno">
+
+            <div class="producto-info">
+                <h3>BUJE DE BARRENO YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('caja de trinquete')">
+            <img
+            src="caja de trianquete.jpeg"
+            alt="caja de trinquite">
+
+            <div class="producto-info">
+                <h3>CAJA DE TRINQUETE YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('capuchon de respirador')">
+            <img
+            src="capuchon de respiracion.jpeg"
+            alt="capuchon de respirador">
+            <div class="producto-info">
+                <h3>CAPUCHON DE RESPIRADOR de YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('cargador de anfo')">
+            <img
+            src=" "
+            alt="cargador de anfo">
+
+            <div class="producto-info">
+                <h3>CARGADOR DE ANFO - SUELTO</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('cargador de anfo')">
+            <img
+            src=" "
+            alt="cargador de anfo">
+
+            <div class="producto-info">
+                <h3>CARGADOR DE ANFO GALVANIZADO </h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('cargadaor de anfo')">
+            <img
+            src="cargador de anfo.jpeg"
+            alt="cargador de anfo">
+
+            <div class="producto-info">
+                <h3>CARGADOR DE ANFO DE ALUMINIO</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('casco')">
+            <img
+            src="casco.jpeg"
+            alt="casco">
+
+            <div class="producto-info">
+                <h3>CASCO</h3>
+            </div>
+        </article>
+    
+    <article class="producto"
+        onclick="mostrarEquipo('casco')">
+            <img
+            src=" "
+            alt="casco">
+
+            <div class="producto-info">
+                <h3>CASCO CROSS</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('casco')">
+            <img
+            src=" "
+            alt="casco">
+
+            <div class="producto-info">
+                <h3>CASCO DE FIBRA</h3>
+            </div>
+        </article>
+        
+    <article class="producto"
+        onclick="mostrarEquipo('crisol de fundicion')">
+            <img
+            src="crisol grande.jpeg"
+            alt="crisol de fundicion">
+
+            <div class="producto-info">
+                <h3>CRISOL DE FUNDICION DE ORO GRANDE</h3>
+            </div>
+        </article>
+        
+    <article class="producto"
+        onclick="mostrarEquipo('crisol de fundicion')">
+            <img
+            src="crisol pequeño.jpeg"
+            alt="crisol de fundicion">
+
+            <div class="producto-info">
+                <h3>CRISOL DE FUNDICION DE ORO PEQUEÑO</h3>
+            </div>
+        </article> 
+
+    <article class="producto"
+        onclick="mostrarEquipo('distribuidor de aire ')">
+            <img
+            src="distribuidor de aire.jpeg"
+            alt="distribuidor de aire ">
+
+            <div class="producto-info">
+                <h3>DISTRIBUIDOR DE AIRE YT27</h3>
+            </div>
+        </article> 
+
+    <article class="producto"
+        onclick="mostrarEquipo('empaque de garra')">
+            <img
+            src="empaque de garra.jpeg"
+            alt="empaque de garra">
+
+            <div class="producto-info">
+                <h3>EMPAQUE DE GARRA DE ACOPLE</h3>
+            </div>
+        </article> 
+
+    <article class="producto"
+        onclick="mostrarEquipo('fanel')">
+            <img
+            src=" "
+            alt="fanel">
+
+            <div class="producto-info">
+                <h3>FANEL CTD</h3>
+            </div>
+        </article> 
+
+    <article class="producto"
+        onclick="mostrarEquipo('filtro de compresora')">
+            <img
+            src="filtro de compresora.jpeg"
+            alt="filtro de compresora">
+
+            <div class="producto-info">
+                <h3>FILTRO DE COMPRESORA</h3>
+            </div>
+        </article> 
+
+    <article class="producto"
+        onclick="mostrarEquipo('filtro de gas')">
+            <img
+            src="filtro de gas.jpeg"
+            alt="filtro de gas">
+
+            <div class="producto-info">
+                <h3>FILTRO DE GAS</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('filtro de mascarilla')">
+            <img
+            src="filtro de gas.jpeg"
+            alt="filtro de mascarilla">
+
+            <div class="producto-info">
+                <h3>FILTRO DE MASCARILLA ROSA</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('filtro de pulmosan')">
+            <img
+            src="filtros cuadrados.jpeg"
+            alt="filtro de pulmosan">
+
+            <div class="producto-info">
+                <h3>FILTRO CUADRADO DE PULMOSAN</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('garra canuto')">
+            <img
+            src="garra canuto 1pulg.jpeg"
+            alt="garra canuto">
+
+            <div class="producto-info">
+                <h3>GARRA CANUTO 1 PULG</h3>
+            </div>
+        </article>    
+
+    <article class="producto"
+        onclick="mostrarEquipo('garra canuto')">
+            <img
+            src="garra canuto 1.2 pulg.jpeg"
+            alt="garra canuto">
+
+            <div class="producto-info">
+                <h3>GARRA CANUTO 1/2 PULG</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('garra canuto')">
+            <img
+            src="garra canuto 3.4.jpeg"
+            alt="garra canuto">
+
+            <div class="producto-info">
+                <h3>GARRA CANUTO 3/4 PULG</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('garra rosca')">
+            <img
+            src="garra rosca 3.4.jpeg"
+            alt="garra rosca">
+
+            <div class="producto-info">
+                <h3>GARRA ROSCA 3/4 PULG</h3>
+            </div>
+        </article> 
+        
+    <article class="producto"
+        onclick="mostrarEquipo('gatillo de piston')">
+            <img
+            src="gatillo de piston de avance.jpeg"
+            alt="gatillo de piston">
+
+            <div class="producto-info">
+                <h3>GATILLO DE PISTON DE AVANCE YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('kit de repuestos')">
+            <img
+            src="kit de repuestos yt27.jpeg"
+            alt="kit de repuestos">
+
+            <div class="producto-info">
+                <h3>KIT DE REPUESTOS YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('kit de retenes')">
+            <img
+            src="kit de retenes de piston.jpeg"
+            alt="kit de retenes">
+
+            <div class="producto-info">
+                <h3>KIT DE RETENES DE PISTON DE YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('kit de retenes')">
+            <img
+            src="kit de retenes.jpeg"
+            alt="kit de retenes">
+
+            <div class="producto-info">
+                <h3>KIT DE RETENES YT27</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('lampara jym')">
+            <img
+            src="lampara jym.jpeg"
+            alt="lampara jym">
+
+            <div class="producto-info">
+                <h3>LAMPARA JYM</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('lampara minera')">
+            <img
+            src="lampara 9025.jpeg"
+            alt="lampara minera">
+
+            <div class="producto-info">
+                <h3>LAMPARA MINERA 9025</h3>
+            </div>
+        </article>
+
+    <article class="producto"
+        onclick="mostrarEquipo('lampara minera')">
+            <img
+            src="lampara 9070.jpeg"
+            alt="lampara minera">
+
+            <div class="producto-info">
+                <h3>LAMPARA MINERA 9070</h3>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- AQUÍ APARECE EL DETALLE -->
+    <div id="detalle">
+        <h3 id="detalle-titulo"></h3>
+
+        <img id="detalle-imagen" src="" alt="Equipo seleccionado">
+
+        <p id="detalle-descripcion"></p>
+        <p id="detalle-aplicaciones"></p>
+
+        <div class="acciones">
+            <a id="consulta" class="btn" href="#contacto">
+                CONSULTAR ESTE EQUIPO →
+            </a>
+
+            <button class="btn" onclick="cerrarDetalle()">
+                ← VOLVER A LOS TIPOS
+            </button>
+        </div>
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <div class="titulo">
+        <h2>¿Necesitas una <span>perforadora?</span></h2>
+        <p>
+            Contáctanos para consultar disponibilidad,
+            modelos, especificaciones y precios.
+        </p>
+        <br>
+
+        <a class="btn"
+        href="mailto:contacto@mineragold.com?subject=Consulta%20de%20perforadoras">
+            SOLICITAR INFORMACIÓN ✉
+        </a>
+        <br><br>
+        <a href="index.html"
+        style="color:#e5a928;text-decoration:none">
+            ← VOLVER A LA PÁGINA PRINCIPAL
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 MINERA GOLD | Maquinaria y equipos para minería.
+</footer>
+
+<script>
+const equipos = {
+    jumbo: {
+        nombre: "Perforadora Jumbo",
+        imagen: "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "Los equipos jumbo se utilizan en minería subterránea y construcción de túneles. Según el modelo, pueden disponer de uno o varios brazos de perforación.",
+        aplicaciones: "Aplicaciones: desarrollo de galerías, túneles y preparación de frentes de trabajo."
+    },
+
+    jackleg: {
+        nombre: "Perforadora Jackleg",
+        imagen: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "La Jackleg es una perforadora neumática que utiliza un apoyo telescópico para facilitar el trabajo del operador en determinadas posiciones.",
+        aplicaciones: "Aplicaciones: perforación de roca en minería subterránea y trabajos en galerías, según el modelo."
+    },
+
+    dth: {
+        nombre: "Perforadora DTH",
+        imagen: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "DTH significa Down-the-Hole. Este sistema coloca el mecanismo de percusión cerca de la broca, en el fondo del barreno.",
+        aplicaciones: "Aplicaciones: perforación de roca en minería, canteras y determinados trabajos de superficie."
+    },
+
+    tophammer: {
+        nombre: "Perforadora Top Hammer",
+        imagen: "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "En los sistemas Top Hammer, el mecanismo de percusión se encuentra en la parte superior de la sarta de perforación y transmite la energía a la broca mediante las barras.",
+        aplicaciones: "Aplicaciones: perforación de roca, minería y canteras, según las características del equipo."
+    },
+
+    exploracion: {
+        nombre: "Perforadora de exploración",
+        imagen: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "Las perforadoras de exploración permiten investigar el subsuelo y, con sistemas apropiados, recuperar muestras para el análisis geológico.",
+        aplicaciones: "Aplicaciones: exploración mineral y estudios geológicos."
+    },
+
+    barrenos: {
+        nombre: "Barrenos y accesorios",
+        imagen: "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=85",
+        descripcion: "Los accesorios de perforación incluyen barras, brocas y otros componentes seleccionados según el sistema y las condiciones de trabajo.",
+        aplicaciones: "Aplicaciones: perforación de roca. La compatibilidad depende del equipo, las conexiones y las especificaciones técnicas."
+    }
+};
+
+function mostrarEquipo(tipo) {
+    const equipo = equipos[tipo];
+
+    document.getElementById("detalle-titulo").textContent =
+        equipo.nombre;
+
+    document.getElementById("detalle-imagen").src =
+        equipo.imagen;
+
+    document.getElementById("detalle-descripcion").textContent =
+        equipo.descripcion;
+
+    document.getElementById("detalle-aplicaciones").textContent =
+        equipo.aplicaciones;
+
+    document.getElementById("consulta").href =
+        "mailto:contacto@mineragold.com?subject=" +
+        encodeURIComponent("Consulta sobre " + equipo.nombre);
+
+    document.getElementById("detalle").style.display = "block";
+
+    document.getElementById("detalle").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+function cerrarDetalle() {
+    document.getElementById("detalle").style.display = "none";
+
+    document.getElementById("catalogo").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+</script>
+
+</body>
+</html>
